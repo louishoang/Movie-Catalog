@@ -1,0 +1,27 @@
+
+
+<ul>
+  <li>Title : <%= @indi_movie[0]["title"] %></li>
+  <li>Genre : <%= @indi_movie[0]["genre"] %></li>
+  <li>Studio : <%= @indi_movie[0]["studio"] %></li>
+</ul>
+<table class="table table-striped" style="margin-top: 30px">
+  <tr>
+    <th>Actors</th>
+    <th>Roles</th>
+  </tr>
+  <% @indi_movie.each do |movie| %>
+    <tr>
+      <td><a href="/actors/<%= movie["actor_id"] %>"><%= movie["actors"]%></a></td>
+      <td><%= movie["roles"]%></td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+
+
+
+
+

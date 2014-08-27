@@ -1,0 +1,38 @@
+<div style="text-align: center">
+  <form action="/movies" method="get" class="form-inline">
+    <input type="search" class="form-control box-shadow" placeholder="Search"/>
+    <input type="submit" class="form-control" value="Search"/>
+  </form>
+</div>
+
+<div style="text-align: right; padding-right: 150px">
+  Sort by:
+  <a href="/movies?order=rating">Rating</a> |
+  <a href="/movies"> Title </a> |
+  <a href="/movies?order=year"> Year </a>
+</div>
+
+<table class="table table-striped" style="margin-top: 30px" >
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Rating</th>
+    <th>Genre</th>
+    <th>Studio</th>
+  </tr>
+  <% @movies.each do |movie| %>
+
+    <tr>
+      <td>
+        <a href="/movies/<%= movie["id"] %>">
+          <%= movie["title"] %>
+        </a>
+      </td>
+      <td><%= movie["year"] %></td>
+      <td><%= movie["rating"] %></td>
+      <td><%= movie["genre"] %></td>
+      <td><%= movie["studio"] %></td>
+    </tr>
+  <% end %>
+
+</table>

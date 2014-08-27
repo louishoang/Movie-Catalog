@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @actors.each do |actor| %>
+    <tr>
+      <td><a href="/actors/<%= actor["id"] %>"><%= actor["name"] %></a></td>
+    </tr>
+  <% end %>
+
+</table>
+
