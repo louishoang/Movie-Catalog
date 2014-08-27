@@ -1,6 +1,6 @@
 <div style="text-align: center">
   <form action="/movies" method="get" class="form-inline">
-    <input type="search" class="form-control box-shadow" placeholder="Search"/>
+    <input type="search" name="query" id="query" class="form-control box-shadow" placeholder="Search"/>
     <input type="submit" class="form-control" value="Search"/>
   </form>
 </div>
@@ -36,3 +36,15 @@
   <% end %>
 
 </table>
+<div style="text-align: center; margin-top:20px">
+  <% start = params[:page] ||= 1 %>
+  <% last = start.to_i + 10 %>
+
+  <% for i in ((start.to_i - 3)..last) %>
+    <% if params[:order] %>
+      <a href="/movies?order=<%= params[:order] %>&page=<%= i %>"><%= i %></a>
+    <% else %>
+      <a href="/movies?page=<%= i %>"><%= i %></a>
+    <% end %>
+  <% end %>
+</div>
